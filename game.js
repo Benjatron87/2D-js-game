@@ -9,10 +9,10 @@ let randy = Math.floor(Math.random() * 300) + 100
 let score = 0;
 let sec = 0;
 let render;
-let gameOver = false;
 let towerW = 80;
-
 let towerX = 480;
+
+$("#play-again").hide();
 
 function drawBall() {
     ctx.beginPath();
@@ -44,9 +44,8 @@ function draw() {
         y += dy + (.32 * (sec * sec))/2;
     }
     else if(y > canvas.height){
+        y = canvas.height - 20;
         lose()
-        clearInterval(render)
-        y = canvas.height - 300;
     }
 
     towerX -= 10;
@@ -59,6 +58,7 @@ function draw() {
     if(x === towerX + 50){
         score++
         console.log(score);
+        $("#score").text("Score: " + score)
     }
 
    
@@ -97,5 +97,28 @@ let lose = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     console.log('you lose')
     clearInterval(render)
+
+    $("#play-again").show();
+
+    $("#play-again").unbind().on('click', function(){
+        setUp();
+    })
     
+}
+
+let setUp = () => {
+    square = 20;
+    x = 70;
+    y = canvas.height - 300;
+    dx = 0;
+    dy = 0;
+    randy = Math.floor(Math.random() * 300) + 100
+    score = 0;
+    sec = 0;
+    towerW = 80;
+    towerX = 480;
+
+    $("#play-again").hide();
+
+    render = setInterval(draw, 25);
 }

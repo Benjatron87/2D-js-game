@@ -8,3 +8,30 @@ canvas {
     display: block;
     margin: 0 auto; 
 }
+
+#container{
+    position: relative;
+    height: 600px;
+    width: 480px;
+}
+
+#play-again{
+    position: absolute;
+    left: 190px;
+    top: 200px;
+    background: rgb(0, 0, 133);
+    padding: 15px;
+    color: white;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+#play-again:hover{
+    background: rgb(0, 0, 255);
+}
+
+#score{
+    position: absolute;
+    left: 80px;
+    top: 10px;
+}
