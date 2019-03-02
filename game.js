@@ -5,14 +5,17 @@ var x = 70;
 var y = canvas.height - 300;
 var dx = 0;
 var dy = 0;
-let randy = Math.floor(Math.random() * 300) + 100
+let randy = Math.floor(Math.random() * 350) + 75
 let score = 0;
 let sec = 0;
 let render;
 let towerW = 80;
 let towerX = 480;
+let highScore = 0;
 
-$("#play-again").hide();
+$("#play-again").unbind().on('click', function(){
+    setUp();
+})
 
 function drawBall() {
     ctx.beginPath();
@@ -35,7 +38,6 @@ document.onkeydown = function(e) {
     }
 };
 
-render = setInterval(draw, 25);
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -51,21 +53,26 @@ function draw() {
     towerX -= 10;
 
     if (towerX === -50){
-        randy = Math.floor(Math.random() * 300) + 100
+        randy = Math.floor(Math.random() *350) + 75
         towerX = 480;
     }
 
     if(x === towerX + 50){
         score++
-        console.log(score);
+        
         $("#score").text("Score: " + score)
+
+        if(score > highScore){
+            highScore = score;
+            $("#highscore").text("High Score: " + highScore)
+        }
     }
 
    
-    if(y >= 0 && y + square <= randy && x + square >= towerX && x <= towerX + towerW){
+    if(y >= 0 && y  <= randy && x + square >= towerX && x <= towerX + towerW){
         lose();
     }
-    if(y >= randy + 150 && y + square <= 600 && x + square >= towerX && x <= towerX + towerW){
+    if(y + square >= randy + 150 && y + square <= 600 && x + square >= towerX && x <= towerX + towerW){
         lose();
     }
 
@@ -94,10 +101,7 @@ let upperTower = function(){
 }
 
 let lose = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    console.log('you lose')
     clearInterval(render)
-
     $("#play-again").show();
 
     $("#play-again").unbind().on('click', function(){
@@ -112,12 +116,13 @@ let setUp = () => {
     y = canvas.height - 300;
     dx = 0;
     dy = 0;
-    randy = Math.floor(Math.random() * 300) + 100
+    randy = Math.floor(Math.random() * 350) + 75
     score = 0;
     sec = 0;
     towerW = 80;
     towerX = 480;
-
+    
+    $("#score").text("Score: " + score)
     $("#play-again").hide();
 
     render = setInterval(draw, 25);

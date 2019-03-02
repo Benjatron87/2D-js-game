@@ -34,4 +34,18 @@ canvas {
     position: absolute;
     left: 80px;
     top: 10px;
+    color: white;
+    background: rgb(117, 0, 0);
+    padding: 5px;
+    border-radius: 5%;
+}
+
+#highscore{
+    position: absolute;
+    left: 300px;
+    top: 10px;
+    color: white;
+    background: rgb(117, 0, 0);
+    padding: 5px;
+    border-radius: 5%;
 }
