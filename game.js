@@ -20,7 +20,7 @@ $("#play-again").unbind().on('click', function(){
     setUp();
 })
 
-function drawBall() {
+function drawDisc() {
     ctx.beginPath();
     ctx.drawImage(img, x, y, width, height);
     ctx.fill();
@@ -71,14 +71,14 @@ function draw() {
     }
 
    
-    if(y >= 0 && y  <= randy && x + 40 >= towerX && x <= towerX + towerW){
+    if(y + 5  >= 0 && y + 5 <= randy && x + 80 >= towerX && x + 10 <= towerX + towerW){
         lose();
     }
-    if(y + height >= randy + 200 && y + height <= 600 && x + 40 >= towerX && x <= towerX + towerW){
+    if(y + height - 5 >= randy + 200 && y + height - 5 <= 600 && x + 80 >= towerX && x + 10 <= towerX + towerW){
         lose();
     }
 
-    drawBall();
+    drawDisc();
     upperTower();
     lowerTower();
     sec += .75
