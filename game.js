@@ -42,7 +42,7 @@ console.log(randy)
 
 document.onkeydown = function(e) {
     switch (e.keyCode) {
-        case 32:
+        case 87:
 
         dy = -13;
         sec = 0;
@@ -155,11 +155,11 @@ let upperTower = function(){
 let lose = () => {
     clearInterval(render)
     $("#play-again").show();
+    $("#howto").show();
 
     $("#play-again").unbind().on('click', function(){
         setUp();
     })
-    
 }
 
 let setUp = () => {
@@ -176,6 +176,7 @@ let setUp = () => {
     
     $("#score").text("Score: " + score)
     $("#play-again").hide();
+    $("#howto").hide();
 
     render = setInterval(draw, 25);
 }
