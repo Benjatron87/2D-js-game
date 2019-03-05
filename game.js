@@ -1,17 +1,20 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var square = 20;
+var height = 40;
+var width = 90;
 var x = 70;
 var y = canvas.height - 300;
 var dx = 0;
 var dy = 0;
-let randy = Math.floor(Math.random() * 350) + 75
+let randy = Math.floor(Math.random() * 300) + 75
 let score = 0;
 let sec = 0;
 let render;
 let towerW = 80;
 let towerX = 480;
 let highScore = 0;
+let img = document.createElement('img');
+img.src = 'images/disc.png';
 
 $("#play-again").unbind().on('click', function(){
     setUp();
@@ -19,8 +22,7 @@ $("#play-again").unbind().on('click', function(){
 
 function drawBall() {
     ctx.beginPath();
-    ctx.rect(x, y, square, square);
-    ctx.fillStyle = "#0095DD";
+    ctx.drawImage(img, x, y, width, height);
     ctx.fill();
     ctx.closePath();
 }
@@ -53,7 +55,7 @@ function draw() {
     towerX -= 10;
 
     if (towerX === -50){
-        randy = Math.floor(Math.random() *350) + 75
+        randy = Math.floor(Math.random() *300) + 75
         towerX = 480;
     }
 
@@ -69,10 +71,10 @@ function draw() {
     }
 
    
-    if(y >= 0 && y  <= randy && x + square >= towerX && x <= towerX + towerW){
+    if(y >= 0 && y  <= randy && x + 40 >= towerX && x <= towerX + towerW){
         lose();
     }
-    if(y + square >= randy + 150 && y + square <= 600 && x + square >= towerX && x <= towerX + towerW){
+    if(y + height >= randy + 200 && y + height <= 600 && x + 40 >= towerX && x <= towerX + towerW){
         lose();
     }
 
@@ -85,7 +87,7 @@ function draw() {
 let lowerTower = function(){
 
     ctx.beginPath();
-    ctx.rect(towerX, randy + 150, towerW, 600);
+    ctx.rect(towerX, randy + 200, towerW, 600);
     ctx.fillStyle = "rgb(255, 0, 0, 1)";
     ctx.fill();
     ctx.closePath();
@@ -116,7 +118,7 @@ let setUp = () => {
     y = canvas.height - 300;
     dx = 0;
     dy = 0;
-    randy = Math.floor(Math.random() * 350) + 75
+    randy = Math.floor(Math.random() * 300) + 75 
     score = 0;
     sec = 0;
     towerW = 80;
