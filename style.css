@@ -21,7 +21,7 @@ canvas {
     position: absolute;
     left: 190px;
     top: 200px;
-    background: rgb(0, 0, 133);
+    background: rgb(225, 0, 0);
     padding: 15px;
     color: white;
     border-radius: 5%;
@@ -29,7 +29,8 @@ canvas {
 }
 
 #play-again:hover{
-    background: rgb(0, 0, 255);
+    color:  rgb(225, 0, 0);
+    background: rgb(252, 252, 255);
 }
 
 #score{
@@ -37,9 +38,9 @@ canvas {
     left: 80px;
     top: 10px;
     color: white;
-    background: rgb(117, 0, 0);
+    background: rgb(0, 0, 225);
     padding: 5px;
-    border-radius: 5%;
+    border-radius: 10%;
 }
 
 #highscore{
@@ -47,7 +48,7 @@ canvas {
     left: 300px;
     top: 10px;
     color: white;
-    background: rgb(117, 0, 0);
+    background: rgb(0, 0, 225);
     padding: 5px;
-    border-radius: 5%;
+    border-radius: 10%;
 }

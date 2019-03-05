@@ -13,14 +13,25 @@ let render;
 let towerW = 80;
 let towerX = 480;
 let highScore = 0;
-let img = document.createElement('img');
-img.src = 'images/disc.png';
+let num = 0;
+let imgUp = document.createElement('img');
+imgUp.src = 'images/up.png';
+let imgDown = document.createElement('img');
+imgDown.src = 'images/down.png';
+let imgLeft = document.createElement('img');
+imgLeft.src = 'images/left.png';
+let imgRight = document.createElement('img');
+imgRight.src = 'images/right.png';
+let imgAudl = document.createElement('img');
+imgAudl.src = 'images/audl.png';
+let imgAudlFlip = document.createElement('img');
+imgAudlFlip.src = 'images/audlflip.png';
 
 $("#play-again").unbind().on('click', function(){
     setUp();
 })
 
-function drawDisc() {
+function drawDisc(img) {
     ctx.beginPath();
     ctx.drawImage(img, x, y, width, height);
     ctx.fill();
@@ -78,10 +89,27 @@ function draw() {
         lose();
     }
 
-    drawDisc();
+    
+
+    if(num === 0){
+        drawDisc(imgUp);
+    }
+    else if(num === 1){
+        drawDisc(imgRight);
+    }
+    else if(num === 2){
+        drawDisc(imgDown);
+    }
+    else if(num === 3){
+        drawDisc(imgLeft);
+
+        num = -1
+    }
+    
     upperTower();
     lowerTower();
     sec += .75
+    num++;
 }
 
 let lowerTower = function(){
@@ -91,6 +119,17 @@ let lowerTower = function(){
     ctx.fillStyle = "rgb(255, 0, 0, 1)";
     ctx.fill();
     ctx.closePath();
+
+    ctx.beginPath();
+    ctx.rect(towerX, randy + 200, towerW, 180);
+    ctx.fillStyle = "rgb(0, 0, 255, 1)";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.drawImage(imgAudl, towerX, randy + 200, towerW, 90);
+    ctx.fill();
+    ctx.closePath();
 }
 
 let upperTower = function(){
@@ -98,6 +137,17 @@ let upperTower = function(){
     ctx.beginPath();
     ctx.rect(towerX, 0, towerW, randy);
     ctx.fillStyle = "rgb(255, 0, 0, 1)";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.rect(towerX, randy - 180, towerW, 180);
+    ctx.fillStyle = "rgb(0, 0, 255, 1)";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.drawImage(imgAudlFlip, towerX, randy -90 , towerW, 90);
     ctx.fill();
     ctx.closePath();
 }
