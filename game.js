@@ -72,7 +72,7 @@ function draw() {
         towerX = 480;
     }
 
-    if(x === towerX + 50){
+    if(x === towerX + width){
         score++
         
         $("#score").text("Score: " + score)
@@ -92,30 +92,11 @@ function draw() {
     }
 
     num = (num + 1) % picArr.length;
-
     drawDisc(picArr[num]);
-
-    console.log(num);
-
-    // if(num === 0){
-    //     drawDisc(imgUp);
-    // }
-    // else if(num === 1){
-    //     drawDisc(imgRight);
-    // }
-    // else if(num === 2){
-    //     drawDisc(imgDown);
-    // }
-    // else if(num === 3){
-    //     drawDisc(imgLeft);
-
-        // num = -1
-    // }
     
     upperTower();
     lowerTower();
     sec += .75
-    // num++;
 }
 
 let lowerTower = function(){
@@ -169,10 +150,8 @@ let lose = () => {
 }
 
 let setUp = () => {
-    square = 20;
     x = 70;
     y = canvas.height - 300;
-    dx = 0;
     dy = 0;
     randy = Math.floor(Math.random() * 300) + 75 
     score = 0;
