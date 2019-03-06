@@ -27,6 +27,8 @@ imgAudl.src = 'images/audl.png';
 let imgAudlFlip = document.createElement('img');
 imgAudlFlip.src = 'images/audlflip.png';
 
+let picArr = [imgUp, imgRight, imgDown, imgLeft];
+
 $("#play-again").unbind().on('click', function(){
     setUp();
 })
@@ -89,27 +91,31 @@ function draw() {
         lose();
     }
 
-    
+    num = (num + 1) % picArr.length;
 
-    if(num === 0){
-        drawDisc(imgUp);
-    }
-    else if(num === 1){
-        drawDisc(imgRight);
-    }
-    else if(num === 2){
-        drawDisc(imgDown);
-    }
-    else if(num === 3){
-        drawDisc(imgLeft);
+    drawDisc(picArr[num]);
 
-        num = -1
-    }
+    console.log(num);
+
+    // if(num === 0){
+    //     drawDisc(imgUp);
+    // }
+    // else if(num === 1){
+    //     drawDisc(imgRight);
+    // }
+    // else if(num === 2){
+    //     drawDisc(imgDown);
+    // }
+    // else if(num === 3){
+    //     drawDisc(imgLeft);
+
+        // num = -1
+    // }
     
     upperTower();
     lowerTower();
     sec += .75
-    num++;
+    // num++;
 }
 
 let lowerTower = function(){
