@@ -14,6 +14,7 @@ let towerW = 80;
 let towerX = 480;
 let highScore = 0;
 let num = 0;
+let bool = false;
 let imgUp = document.createElement('img');
 imgUp.src = 'images/up.png';
 let imgDown = document.createElement('img');
@@ -46,9 +47,14 @@ document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 87:
 
-        dy = -13;
-        sec = 0;
-
+        if(bool){
+            dy = -13;
+            sec = 0;
+        }
+        else{
+            bool = true;
+            setTimeout(setUp, 200);
+        }
         break;
     }
 };
@@ -63,6 +69,7 @@ function draw() {
     else if(y > canvas.height){
         y = canvas.height - 20;
         lose()
+        bool = false;
     }
 
     towerX -= 10;
@@ -85,56 +92,40 @@ function draw() {
 
    
     if(y + 5  >= 0 && y + 5 <= randy && x + 80 >= towerX && x + 10 <= towerX + towerW){
+        bool = false;
         lose();
     }
     if(y + height - 5 >= randy + 200 && y + height - 5 <= 600 && x + 80 >= towerX && x + 10 <= towerX + towerW){
+        bool = false;
         lose();
     }
 
     num = (num + 1) % picArr.length;
     drawDisc(picArr[num]);
     
-    upperTower();
-    lowerTower();
+    //upper tower
+    tower(0,randy,-180,imgAudlFlip,-90);
+    //lower tower
+    tower(randy+200,600,200,imgAudl,200);
     sec += .75
 }
 
-let lowerTower = function(){
+let tower = function(a, b, c, d, e){
 
     ctx.beginPath();
-    ctx.rect(towerX, randy + 200, towerW, 600);
+    ctx.rect(towerX, a, towerW, b);
     ctx.fillStyle = "rgb(255, 0, 0, 1)";
     ctx.fill();
     ctx.closePath();
 
     ctx.beginPath();
-    ctx.rect(towerX, randy + 200, towerW, 180);
+    ctx.rect(towerX, randy + c, towerW, 180);
     ctx.fillStyle = "rgb(0, 0, 255, 1)";
     ctx.fill();
     ctx.closePath();
 
     ctx.beginPath();
-    ctx.drawImage(imgAudl, towerX, randy + 200, towerW, 90);
-    ctx.fill();
-    ctx.closePath();
-}
-
-let upperTower = function(){
-
-    ctx.beginPath();
-    ctx.rect(towerX, 0, towerW, randy);
-    ctx.fillStyle = "rgb(255, 0, 0, 1)";
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.beginPath();
-    ctx.rect(towerX, randy - 180, towerW, 180);
-    ctx.fillStyle = "rgb(0, 0, 255, 1)";
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.beginPath();
-    ctx.drawImage(imgAudlFlip, towerX, randy -90 , towerW, 90);
+    ctx.drawImage(d, towerX, randy + e, towerW, 90);
     ctx.fill();
     ctx.closePath();
 }
@@ -145,6 +136,7 @@ let lose = () => {
     $("#howto").show();
 
     $("#play-again").unbind().on('click', function(){
+        bool = true;
         setUp();
     })
 }
