@@ -59,14 +59,13 @@ document.onkeydown = function(e) {
     }
 };
 
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(y < 600){
+    if(y < 600 && y > -30){
         y += dy + (.32 * (sec * sec))/2;
     }
-    else if(y > canvas.height){
+    else if(y > canvas.height || y < -30){
         y = canvas.height - 20;
         lose()
         bool = false;
