@@ -23,10 +23,6 @@ let imgLeft = document.createElement('img');
 imgLeft.src = 'images/left.png';
 let imgRight = document.createElement('img');
 imgRight.src = 'images/right.png';
-let imgAudl = document.createElement('img');
-imgAudl.src = 'images/audl.png';
-let imgAudlFlip = document.createElement('img');
-imgAudlFlip.src = 'images/audlflip.png';
 
 let picArr = [imgUp, imgRight, imgDown, imgLeft];
 
@@ -40,8 +36,6 @@ function drawDisc(img) {
     ctx.fill();
     ctx.closePath();
 }
-
-console.log(randy)
 
 document.onkeydown = function(e) {
     switch (e.keyCode) {
@@ -89,7 +83,7 @@ function draw() {
         }
     }
 
-   
+
     if(y + 5  >= 0 && y + 5 <= randy && x + 80 >= towerX && x + 10 <= towerX + towerW){
         bool = false;
         lose();
@@ -103,13 +97,13 @@ function draw() {
     drawDisc(picArr[num]);
     
     //upper tower
-    tower(0,randy,-180,imgAudlFlip,-90);
+    tower(0,randy,-180,-90);
     //lower tower
-    tower(randy+200,600,200,imgAudl,200);
+    tower(randy+200,600,200,200);
     sec += .75
 }
 
-let tower = function(a, b, c, d, e){
+let tower = function(a, b, c, e){
 
     ctx.beginPath();
     ctx.rect(towerX, a, towerW, b);
@@ -119,12 +113,13 @@ let tower = function(a, b, c, d, e){
 
     ctx.beginPath();
     ctx.rect(towerX, randy + c, towerW, 180);
-    ctx.fillStyle = "rgb(0, 0, 255, 1)";
+    ctx.fillStyle = "rgb(255, 255, 255, 1)";
     ctx.fill();
     ctx.closePath();
 
     ctx.beginPath();
-    ctx.drawImage(d, towerX, randy + e, towerW, 90);
+    ctx.rect(towerX, randy + e, towerW, 90);
+    ctx.fillStyle = "rgb(0, 0, 255, 1)";
     ctx.fill();
     ctx.closePath();
 }
@@ -133,6 +128,7 @@ let lose = () => {
     clearInterval(render)
     $("#play-again").show();
     $("#howto").show();
+    $("#code-link").show();
 
     $("#play-again").unbind().on('click', function(){
         bool = true;
@@ -153,6 +149,7 @@ let setUp = () => {
     $("#score").text("Score: " + score)
     $("#play-again").hide();
     $("#howto").hide();
+    $("#code-link").hide();
 
     render = setInterval(draw, 25);
 }

@@ -1,23 +1,77 @@
-* { 
-    padding: 0;
-    margin: 0; 
+.container-fluid{
+    background: rgb(233, 233, 233);
+    border: 2px solid rgb(0, 0, 114);
+    border-right: none;
+    border-left: none;
+    text-align: center;
+}
+
+.benj{
+    border: 2px solid navy;
+    border-left: none;
+    border-right: none;
+    padding: 1%;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    color: rgb(0, 0, 114);
+    font-weight: bold;
+    background: rgb(233, 233, 233);
+    margin-bottom: 0;
+    font-size: 35px;
+}
+
+.wrapper{
+    background:rgb(233, 233, 233);
+    border: 2px solid  rgb(0, 0, 114);
+    margin: 5% 10% 5% 10%;
+    padding: 5%;
+    font-size: 20px;
+    align-content: center;
+    overflow: auto;
+    border-radius: 2px;
+}
+
+.wrapper-title{
+    padding: 1% 0% 1% 0%;
+    margin-bottom: 3%;
+    text-align: center;
+    color: navy;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 30px;
+    border: 2px solid navy;
+    border-right: none;
+    border-left: none;
+}
+
+.footer{
+    border: 2px solid navy;
+    border-left: none;
+    border-right: none;
+    padding: 2%;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    color: rgb(0, 0, 114);
+    font-weight: bold;
+    background: rgb(233, 233, 233);
+    margin-top: 10%;
+    margin-bottom: 0;
 }
 
 canvas { 
-    background-image: url("images/field.png");
+    background-image: url("./images/field.png");
     background-position: center;
     background-size: cover;
     display: block;
     margin: 0 auto; 
-}
-
-#container{
+    border: 2px solid navy;
+  }
+  
+  #container{
     position: relative;
     height: 600px;
     width: 480px;
-}
-
-#play-again{
+  }
+  
+  #play-again{
     position: absolute;
     left: 190px;
     top: 200px;
@@ -26,22 +80,36 @@ canvas {
     color: white;
     border-radius: 5%;
     cursor: pointer;
-}
-
-#howto{
+  }
+  
+  #howto{
     position: absolute;
-    left: 110px;
+    left: 170px;
     top: 260px;
     color: rgb(255, 255, 255);
     text-shadow: -3px 0 blue, 0 3px blue, 3px 0 blue, 0 -3px blue;
-}
-
-#play-again:hover{
+  }
+  
+  #code-link{
+    position: absolute;
+    left: 195px;
+    top: 290px;
+    color: rgb(255, 255, 255);
+    text-shadow: -3px 0 blue, 0 3px blue, 3px 0 blue, 0 -3px blue;
+  }
+  
+  #code-link:hover{
+    text-decoration: none;
+    color: navy;
+    text-shadow: none;
+  }
+  
+  #play-again:hover{
     color:  rgb(225, 0, 0);
     background: rgb(252, 252, 255);
-}
-
-#score{
+  }
+  
+  #score{
     position: absolute;
     left: 80px;
     top: 10px;
@@ -49,9 +117,9 @@ canvas {
     background: rgb(0, 0, 225);
     padding: 5px;
     border-radius: 10%;
-}
-
-#highscore{
+  }
+  
+  #highscore{
     position: absolute;
     left: 300px;
     top: 10px;
@@ -59,85 +127,4 @@ canvas {
     background: rgb(0, 0, 225);
     padding: 5px;
     border-radius: 10%;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
   }
-
-body{
-    background: whitesmoke;
-    font-family: 'Georgia', Times, Times New Roman, serif;
-}
-.name {
-    background: rgb(0, 2, 100);
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 21px;
-    line-height: 50px;
-    margin-bottom: 0;
-}
-
-.footer {
-    background: #777777;
-    border-top: 10px solid rgb(0, 2, 100);
-    color: white;
-}
-.text{
-    background: rgb(0, 2, 100);
-    color: white;
-}
-#text{
-    color: #ffffff;
-    background: rgb(0, 2, 100);
-    height: 30px;
-    line-height: 20px;
-    font-size: 16px;
-    padding: 5px;
-}
-.text:hover, #submit:hover {
-    background: rgb(0, 3, 153);
-    text-decoration: none;
-    color: white;
-}
-.footer {
-    background: #777777;
-    border-top: 10px solid rgb(0, 2, 100);
-    color: white;
-    position: absolute;
-    bottom: 0;
-}
-.color {
-    background: rgb(0, 2, 100);
-    color: white;
-}
-
-.size{
-    height: 300px;
-    width: 210px;
-    border: 2px solid rgb(0, 2, 100);
-}
-
-.text{
-    position: absolute;
-    top: 230px;
-    right: 0%;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.header{
-    margin: 20px;
-    margin-bottom: 0;
-    margin-top: 0;
-    color: rgb(0, 2, 100); 
-    font-weight: bold; 
-    font-size: 26px; 
-    margin: 20px;
-}
-
-#content{
-    margin-bottom: 40px;
-}

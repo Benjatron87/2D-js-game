@@ -15,97 +15,41 @@
     <link rel="stylesheet" href="style.css">
    
 
-    <title>Benj's Game</title>
+    <title>Flappy Disc</title>
 
 </head>
 
 <body>
+    <div class="container-fluid d-flex justify-content-center benj navbar sticky-top">
 
-<div class="container-fluid bg-white border border-secondary">
+        Benj Thomsen
+    </div>
 
-        <nav class="navbar-collapse">
+    <div class="container wrapper">
 
-
-                <div class="row">
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-0 col-sm-0">
-
-                    </div>
-
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 name text-light font-weight-bold d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center">
-
-                       Benj Thomsen
-
-                    </div>
-
-                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12 d-flex justify-content-center justify-content-sm-center d-flex justify-content-md-end d-flex justify-content-lg-end d-flex justify-content-xl-end align-items-center">
-            
-                    
-                    </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-0 col-sm-0">
-
-                    </div>
-
-                </div>
-            </nav>
+        <div class="wrapper-title container-fluid">
+            Flappy Disc
         </div>
-        <br><br>
 
-            <div class="container-fluid">
+                <div id="container" class="container">
 
-                <div class="row">
-
-                        <div class="col-2">
-
-                        </div>
-
-                        <div id="content" class="col-md-8 bg-white border border-secondary">
-
-                                <div class="row border border-secondary border-right-0 border-left-0 border-top-0 d-flex justify-content-center justify-content-sm-center d-flex justify-content-md-start d-flex justify-content-lg-start d-flex justify-content-xl-start align-items-center" style="margin: 20px; margin-bottom: 0; margin-top: 0;">
-                                    <a style="color: rgb(0, 2, 100); font-weight: bold; font-size: 26px; margin: 20px;">
-                                    Flappy Disc</a>
-                                </div>
-
-                                <br>
-
-                                <div id="container" class="container">
-
-                                        <canvas id="myCanvas" width="480" height="600"></canvas>
-                                    
-                                        <a id="play-again">New Game</a>
-                                        <a id="howto">(Click to Start. Press 'W' to Air Bounce)</a>
-                                        <a id="score">Score: 0</a>
-                                        <a id="highscore">High Score: 0</a>
-                                    
-                                    </div>
-
-                                <br>
-                        </div>
-
-                        <div class="col-2">
-
-                        </div>
-                
+                        <canvas id="myCanvas" width="480" height="600"></canvas>
+    
+                        <div id="play-again">New Game</div>
+                        <div id="howto">(Press 'W' to Start)</div>
+                        <a id="code-link" href="https://github.com/Benjatron87/2D-js-game" target="blank">Github Code</a>
+                        <div id="score">Score: 0</div>
+                        <div id="highscore">High Score: 0</div>
+    
                 </div>
+        
+    </div>
 
-            </div>
+    <div class="navbar footer d-flex justify-content-center">
+            Benj Thomsen © 2019
+    </div>
 
-            <br><br><br><br>
-
-            <div class="container-fluid footer">
-
-                <footer class="page-footer">
-
-                        <div class="footer-copyright text-center py-4">
-                            © 2019 Copyright: Benj Thomsen
-                        </div>
-                    
-                </footer>
-            </div>
-    </body>
-
-    <script src="game.js"></script>
+            
     <script src="game.js"></script>
 </html>
 
