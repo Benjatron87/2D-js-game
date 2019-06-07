@@ -37,6 +37,13 @@ function drawDisc(img) {
     ctx.closePath();
 }
 
+document.addEventListener("touchstart", function(e) {
+    document.onkeydown({ keyCode: 87 });
+  });
+  document.addEventListener("touchend", function(e) {
+    document.onkeyup({ keyCode: 87 });
+  });
+
 document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 87:
