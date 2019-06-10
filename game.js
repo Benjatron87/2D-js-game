@@ -15,6 +15,7 @@ let towerX = 480;
 let highScore = 0;
 let num = 0;
 let bool = false;
+
 let imgUp = document.createElement('img');
 imgUp.src = 'images/up.png';
 let imgDown = document.createElement('img');
@@ -40,22 +41,16 @@ function drawDisc(img) {
 document.addEventListener("touchstart", function(e) {
     document.onkeydown({ keyCode: 87 });
   });
-  document.addEventListener("touchend", function(e) {
+document.addEventListener("touchend", function(e) {
     document.onkeyup({ keyCode: 87 });
-  });
+});
 
 document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 87:
-
-        if(bool){
             dy = -13;
             sec = 0;
-        }
-        else{
-            bool = true;
-            setTimeout(setUp, 200);
-        }
+        
         break;
     }
 };
@@ -76,7 +71,7 @@ function draw() {
 
     if (towerX === -50){
         randy = Math.floor(Math.random() *300) + 75
-        towerX = 480;
+        towerX = 420;
     }
 
     if(x === towerX + width){
