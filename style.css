@@ -129,8 +129,8 @@ canvas {
 #score{
     position: absolute;
     text-align: center;
-    width: 130px;
-    left: 46px;
+    width: 160px;
+    left: 10px;
     top: 10px;
     color: white;
     background: rgb(0, 0, 225);
@@ -141,8 +141,8 @@ canvas {
 #highscore{
     position: absolute;
     text-align: center;
-    width: 130px;
-    left: 224px;
+    width: 160px;
+    left: 230px;
     top: 10px;
     color: white;
     background: rgb(0, 0, 225);
